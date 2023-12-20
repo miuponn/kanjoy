@@ -1,8 +1,9 @@
 :root {
-    --primary: #24c6dc;
-    --secondary: #514a9d;
+    --primary: #2980b9;
+    --secondary: #2c3e50;
     --dark: #212121;
     --light: #f3f3f3;
+    --main-font: 'Kiwi Maru', sans-serif;
 }
 
 * {
@@ -10,14 +11,102 @@
   padding: 0;
 }
 
+header{
+    position: fixed;
+    top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    padding-left: 40px;
+}
+
+ul{
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding-right: 40px;
+}
+
+.switch{
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input{
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider{
+    position:absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before{
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider{
+    background-color: #bec9e9;
+}
+
+input:focus + .slider{
+    box-shadow: 0 0 1px #bec9e9;
+}
+
+input:checked + .slider:before{
+    -webkit-transform: translatex(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+.slider.round{
+    border-radius: 34px;
+}
+
+.slider.round:before{
+    border-radius:50%;
+}
+
 body {
-  font-family: montserrat, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 70px;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: var(--main-font);
+  background: linear-gradient();
   width: 100%;
   min-height: 100vh;
 }
 
 .card {
   margin: 100px auto 0;
+  margin-top: calc((70px / 2) * -1);
   width: 400px;
   height: 600px;
   perspective: 1000px;
@@ -57,7 +146,7 @@ body {
 
 .card__face--front h2 {
   color: #FFF;
-  font-size: 32px;
+  font-size: 180px;
 }
 
 .card__face--back {
